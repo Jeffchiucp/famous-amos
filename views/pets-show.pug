@@ -6,7 +6,7 @@ block content
             img(src=pet.picUrlSq).img-fluid
         .col-sm-8
             h1=pet.name
-            p=pet.species
+            p=pet.species 
             .text-right
               a.btn.btn-primary(href="/pets/" + pet.id + "/purchase" role='button') Buy #{pet.name} Now!
             p Born on #{pet.birthday}
@@ -22,8 +22,8 @@ block content
                 .text-right
                     button(type="submit").btn.btn-primary Save Comment
             each c in pet.Comments
-                p=c.body
+                p=c.content
                 small.text-right
-                    form(action="/pets/" + pet.id + "/comments/0?_method=DELETE" method="POST")
+                    form(action="/pets/" + pet.id + "/comments/" + c.id + "?_method=DELETE" method="POST")
                         .text-right
                             button(type="submit").text-danger Remove

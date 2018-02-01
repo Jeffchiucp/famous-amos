@@ -1,9 +1,11 @@
 # Famous Amos's Pet Emporium!
 
-use Pet model in '/' index.js
-index, pets#create, pets#show, comments#create, comments#destroy, pets#edit, pets#update, pets#destroy
-validations & flash messages
-simple search and pagination
+# use Pet model in '/' index.js
+I completed finished the following:
+#index, pets#create, pets#show, comments#create, comments#destroy, pets#edit, #pets#update, pets#destroy
+#validations & flash messages
+#simple search and pagination
+TODO - Look into more individual deletes
 
 
 ## Tasks

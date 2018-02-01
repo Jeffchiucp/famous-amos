@@ -15,7 +15,8 @@ html
         ul.navbar-nav
           li.nav-item
             a.nav-link(href='/pets/new') New Pet
-
+            form(action= "/search" method="GET")  
+                input(name="name", placeholder='Look up "Fido"')
     .container
       block content
 
