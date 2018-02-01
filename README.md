@@ -1,14 +1,20 @@
 # Famous Amos's Pet Emporium!
 
+use Pet model in '/' index.js
+index, pets#create, pets#show, comments#create, comments#destroy, pets#edit, pets#update, pets#destroy
+validations & flash messages
+simple search and pagination
+
+
 ## Tasks
 
 ### Add SQL with Sequlizer
 convert pets and comments to use SQL ORM
 
-### Add `bower` 
+### Add `bower`
 Add bootstrap and jQuery with bower into the `public/vendor` folder
 
-### Add jQuery 
+### Add jQuery
 Submit comments form with jQuery
 
 ### Simple Search & Pagination
@@ -22,4 +28,3 @@ Set pet status updates with websockets
 
 ### Payment Gateways
 Buy pets using Stripe.
-

@@ -1,20 +1,24 @@
 const express = require('express');
 const router = express.Router({mergeParams: true});
-
+const model = require('../db/models/');
 let comments = require('../json/comments')
 
 // CREATE
 router.post('/', (req, res) => {
-    comments.unshift(req.body);
+    req.body.petId = req.params.petId;
+
+    model.Comment.create(req.body);
 
     res.redirect(`/pets/${req.params.petId}`);
 });
 
-// DESTROY
-router.delete('/:index', (req, res) => {
-  res.redirect(`/pets/${req.params.id}`);
+router.delete('/:id', (req, res) => {
+    model.Comment.destroy({
+        where: {
+            id: req.params.id
+        }
+    });
+    res.redirect(`/pets/${req.params.petId}`);
 });
-
-
 
 module.exports = router;

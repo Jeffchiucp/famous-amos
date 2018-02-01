@@ -3,13 +3,8 @@ const router = express.Router();
 
 let pets = require('../json/pets')
 let comments = require('../json/comments')
+const model = require('../db/models/');
 const Pet =require('../db/models').Pet
-
-
-// INDEX
-router.get('/', (req, res) => {
-  res.send(pets);
-});
 
 // NEW
 router.get('/new', (req, res) => {
@@ -17,10 +12,16 @@ router.get('/new', (req, res) => {
 });
 
 // SHOW
-router.get('/:index', (req, res) => {
-
-  res.render('pets-show', { pet: pets[req.params.index], comments: comments });
+router.get('/:id', (req, res) => {
+  model.Pet.findById(req.params.id, {
+      include: {
+          model: model.Comment
+      }
+  }).then(pet => {
+      res.render('pets-show', { pet: pet });
+  });
 });
+
 
 // CREATE
 router.post('/', (req, res) => {
