@@ -6,11 +6,11 @@ block content
             img(src=pet.picUrlSq).img-fluid
         .col-sm-8
             h1=pet.name
-            p=pet.species 
+            famouspet=pet.species 
             .text-right
               a.btn.btn-primary(href="/pets/" + pet.id + "/purchase" role='button') Buy #{pet.name} Now!
-            p Born on #{pet.birthday}
-            p=pet.description
+            famouspet Born on #{pet.birthday}
+            famouspet=pet.description
             .text-right
                 a(href="/pets/" + pet.id + "/edit").btn-link Edit
 
@@ -22,7 +22,7 @@ block content
                 .text-right
                     button(type="submit").btn.btn-primary Save Comment
             each c in pet.Comments
-                p=c.content
+                famouspet=c.content
                 small.text-right
                     form(action="/pets/" + pet.id + "/comments/" + c.id + "?_method=DELETE" method="POST")
                         .text-right

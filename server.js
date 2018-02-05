@@ -20,6 +20,7 @@ const session = require('express-session');
 
 const app = express();
 
+//flash
 app.use(cookieParser('keyboard cat'));
 app.use(session({ cookie: { maxAge: 60000 }}));
 app.use(flash());

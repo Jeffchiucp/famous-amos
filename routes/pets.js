@@ -4,11 +4,11 @@ const router = express.Router();
 let pets = require('../json/pets')
 let comments = require('../json/comments')
 const model = require('../db/models/');
-const Pet =require('../db/models').Pet  //set up model for Pet
+const Pet =require('../db/models').Pet
 
 // INDEX
 router.get('/', (req, res) => {
-    Pet.findAll().then(pets => {res.send(pets);});
+    Pet.findAll().then((pets) => {res.send(pets);});
 });
 
 // NEW
@@ -24,7 +24,7 @@ router.get('/:index', (req, res) => {
           model: model.Comment
       }
   }).then(pet => {
-      res.render('pets-show', { pet });
+      res.render('pets-show', { pet:pet });
   });
 });
 
