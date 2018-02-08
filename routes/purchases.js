@@ -7,19 +7,20 @@ var stripe = require("stripe")(process.env.stripeTestSecretKey)
 
 // NEW
 router.get('/pets/:petId/purchase', (req, res) => {
-  console.log('Here is the petId: ', req.params.petId)
   res.render('purchase-new', { pet: pets[req.params.petId]})
 })
 
 // CREATE
+//Web 3 tutorial on Stripe --
+//https://github.com/Jeffchiucp/WEB-3-Advanced-Web-Patterns/
+//tree/master/11.%20Payment%20Gateways
 router.post('/pets/:petId/purchase', (req, res) => {
-  console.log(req.body)
 
   stripe.charges.create({
     amount: pets[req.params.petId].priceInCents,
     currency: "usd",
-    source: req.body.stripeToken.id, // obtained with Stripe.js
-    description: "Charge for famous.amos@example.com"
+    source: req.body.stripeToken.id, // Using Strip API
+    description: "Charge for this amount"
   }, function(err, charge) {
     if (err) { return console.log(err) }
 
