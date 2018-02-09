@@ -10,10 +10,13 @@ router.get('/pets/:petId/purchase', (req, res) => {
   res.render('purchase-new', { pet: pets[req.params.petId]})
 })
 
-// CREATE
+// CREATE Route
 //Web 3 tutorial on Stripe --
 //https://github.com/Jeffchiucp/WEB-3-Advanced-Web-Patterns/
 //tree/master/11.%20Payment%20Gateways
+//also got help from Tassos
+
+
 router.post('/pets/:petId/purchase', (req, res) => {
 
   stripe.charges.create({

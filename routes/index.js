@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
 
 
 /* Search page. */
-
 router.get('/search', (req, res) => {
     model.Pet.findAll(
         {

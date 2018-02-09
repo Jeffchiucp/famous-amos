@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 let pets = require('../json/pets')
 let comments = require('../json/comments')
 const model = require('../db/models/');
@@ -15,7 +14,6 @@ router.get('/', (req, res) => {
 router.get('/new', (req, res) => {
   res.render('pets-new');
 });
-
 
 // SHOW
 router.get('/:index', (req, res) => {
@@ -51,7 +49,6 @@ router.put('/:index', (req, res) => {
         res.send(err);
     });
 });
-
 
 // DESTROY
 router.delete('/:index', (req, res) => {
