@@ -22,6 +22,7 @@ router.get('/pets/:petId/purchase', (req, res) => {
 //also got help from Tassos Lambrou
 //GitHub https://github.com/tlambrou/famous-amos
 
+//Stripe Form
 router.post('/pets/:petId/purchase', (req, res) => {
   stripe.charges.create({
     amount: pets[req.params.petId].priceInCents,
@@ -29,7 +30,7 @@ router.post('/pets/:petId/purchase', (req, res) => {
     source: req.body.stripeToken.id, // Using Strip API
     description: "Charge for this amount"
   }, function(err, charge) {
-    if (err) { return console.log(err) }
+    if (err) { return console.log(err) } //404 error
 
     pets[req.params.petId].purchasedAt = new Date();
     res.send("success!")
