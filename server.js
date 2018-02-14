@@ -14,6 +14,10 @@ const index = require('./routes/index');
 const pets = require('./routes/pets');
 const comments = require('./routes/comments');
 const purchases = require('./routes/purchases');
+// const stripe = require('./')
+
+// stripe.setTimeout(20000); // in ms (this is 20 seconds)
+
 // added Flash
 const flash = require('express-flash');
 const session = require('express-session');
