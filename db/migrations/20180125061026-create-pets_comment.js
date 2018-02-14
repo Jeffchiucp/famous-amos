@@ -17,7 +17,7 @@ module.exports = {
           notNull: true
         }
       },
-      breed: {
+      species: {
         type: Sequelize.STRING
       },
       birthday: {
