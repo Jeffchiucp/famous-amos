@@ -19,6 +19,7 @@
     "pg-hstore": "^2.3.2",
     "pug": "^2.0.0-rc.4",
     "sequelize": "^4.31.2",
+    "sequelize-cli": "^3.2.0",
     "serve-favicon": "~2.4.5",
     "stripe": "^5.4.0"
   }
