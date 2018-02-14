@@ -15,6 +15,7 @@ const pets = require('./routes/pets');
 const comments = require('./routes/comments');
 const purchases = require('./routes/purchases');
 // const stripe = require('./')
+const db = require("./db/models");
 
 // stripe.setTimeout(20000); // in ms (this is 20 seconds)
 
@@ -92,6 +93,13 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
+var PORT = process.env.PORT || 8000;
 
+app.listen(PORT, function(req, res) {
+  console.log("Rubrics App listening on port " + PORT + "...");
+  db.sequelize.sync({ force: false })
+  .then(() => console.log('... Sequelize synced with Database!'))
+  .catch( e => console.log("Error(s): ", e))
+});
 
 module.exports = app;

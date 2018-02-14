@@ -11,13 +11,7 @@ module.exports = {
           notNull: true
         }
       },
-      f_name: {
-        type: Sequelize.STRING,
-        validate: {
-          notNull: true
-        }
-      },
-      l_name: {
+      name: {
         type: Sequelize.STRING,
         validate: {
           notNull: true
