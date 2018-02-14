@@ -15,7 +15,6 @@ const pets = require('./routes/pets');
 const comments = require('./routes/comments');
 const purchases = require('./routes/purchases');
 // const stripe = require('./')
-// const db = require("./db/models");
 
 // stripe.setTimeout(20000); // in ms (this is 20 seconds)
 
