@@ -17,10 +17,9 @@ const transport = mailgunTransport(mailgunOptions);
 var nodemailerMailgun = nodemailer.createTransport(mailgunTransport(auth));
 
 nodemailerMailgun.sendMail({
-  from: 'myemail@example.com',
-  to: 'recipient@domain.com', // An array if you have multiple recipients.
-  subject: 'Hey you, awesome!',
-  text: 'Mailgun rocks, pow pow!',
+  from: 'jeffchiucp@gmail.com',
+  subject: 'welcome to pet store',
+  text: 'We love Rex!',
 }, function (err, info) {
   if (err) {
     console.log('Error: ' + err);
