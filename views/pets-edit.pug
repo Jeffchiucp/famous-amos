@@ -5,7 +5,7 @@ block content
     .row.justify-content-center
         .col-sm-6
             legend New Pet
-            form(action="/pets/0?_method=PUT", method="POST")
+            form(action="/pets/" + pet.id, method="PUT")
                 .form-group
                     label Name
                     input.form-control(name="name" value=pet.name)

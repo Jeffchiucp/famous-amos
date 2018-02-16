@@ -4,6 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
 
     return queryInterface.bulkInsert('Pets', [
+
               { name: "Puppy", species: "Rex", birthday: "2017-11-11", favoriteFood: "food", picUrl: "http://www.dogbreedslist.info/uploads/allimg/dog-pictures/Rottweiler-3.jpg", picUrlSq: "http://www.dogbreedslist.info/uploads/allimg/dog-pictures/Rottweiler-3.jpg", description: "Rex is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food", createdAt: new Date(), updatedAt: new Date(), id: 5 },
               { name: "Rex", species: "Rex", birthday: "2017-11-11", favoriteFood: "food", picUrl: "http://www.dogbreedslist.info/uploads/allimg/dog-pictures/Rottweiler-3.jpg", picUrlSq: "http://www.dogbreedslist.info/uploads/allimg/dog-pictures/Rottweiler-3.jpg", description: "Rex is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food", createdAt: new Date(), updatedAt: new Date(), id: 1 },
               { name: "Fido", species: "Greyhound", birthday: "2017-11-11", favoriteFood: "food", picUrl: "http://www.gpamass.com/s/img/emotionheader713297504.jpg", picUrlSq: "http://www.gpamass.com/s/img/emotionheader713297504.jpg", description: "Fido is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food", createdAt: new Date(), updatedAt: new Date(), id: 2 },

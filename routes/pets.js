@@ -41,9 +41,12 @@ router.get('/:index/edit', (req, res) => {
 
 // UPDATE
 router.put('/:index', (req, res) => {
+
     Pet.findById(req.params.index).then(pet => {
+        console.log(pet)
         return pet.update(req.body);
-    }).then(() => {
+    }).then((pet) => {
+        console.log(pet)
         res.redirect(`/pets/${req.params.index}`);
     }).catch((err) => {
         res.send(err);
