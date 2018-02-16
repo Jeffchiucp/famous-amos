@@ -41,7 +41,6 @@ router.get('/:index/edit', (req, res) => {
 
 // UPDATE
 router.put('/:index', (req, res) => {
-
     Pet.findById(req.params.index).then(pet => {
         console.log(pet)
         return pet.update(req.body);
@@ -55,7 +54,14 @@ router.put('/:index', (req, res) => {
 
 // DESTROY
 router.delete('/:index', (req, res) => {
-  res.redirect('/');
+    Pet.findById(req.params.petId).then(pet => {
+      console.log(pet)
+      return pet.destroy();
+  }).then(() => {
+      res.redirect('/');
+  }).catch((err) => {
+      res.send(err);
+  });
 });
 
 module.exports = router;
