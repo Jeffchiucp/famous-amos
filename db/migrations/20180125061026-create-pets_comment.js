@@ -11,19 +11,13 @@ module.exports = {
           notNull: true
         }
       },
-      f_name: {
+      name: {
         type: Sequelize.STRING,
         validate: {
           notNull: true
         }
       },
-      l_name: {
-        type: Sequelize.STRING,
-        validate: {
-          notNull: true
-        }
-      },
-      breed: {
+      species: {
         type: Sequelize.STRING
       },
       birthday: {

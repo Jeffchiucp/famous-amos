@@ -4,6 +4,7 @@ let pets = require('../json/pets')
 let comments = require('../json/comments')
 const model = require('../db/models/');
 const Pet =require('../db/models').Pet
+const Comment = require('../db/models').Comment
 
 // INDEX
 router.get('/', (req, res) => {
@@ -16,10 +17,11 @@ router.get('/new', (req, res) => {
 });
 
 // SHOW
+// TODO fix all of the index to id
 router.get('/:index', (req, res) => {
   Pet.findById(req.params.index, {
       include: {
-          model: model.Comment
+          model: Comment
       }
   }).then(pet => {
       res.render('pets-show', { pet:pet });
@@ -33,6 +35,7 @@ router.post('/', (req, res) => {
 });
 
 // EDIT
+// TODO fix all of the index to id
 router.get('/:index/edit', (req, res) => {
     Pet.findById(req.params.index).then(pet => {
         res.render('pets-edit', { pet:pet });
@@ -40,10 +43,13 @@ router.get('/:index/edit', (req, res) => {
 });
 
 // UPDATE
+// TODO fix all of the index to id
 router.put('/:index', (req, res) => {
     Pet.findById(req.params.index).then(pet => {
+        console.log(pet)
         return pet.update(req.body);
-    }).then(() => {
+    }).then((pet) => {
+        console.log(pet)
         res.redirect(`/pets/${req.params.index}`);
     }).catch((err) => {
         res.send(err);
@@ -52,7 +58,16 @@ router.put('/:index', (req, res) => {
 
 // DESTROY
 router.delete('/:index', (req, res) => {
-  res.redirect('/');
+    Pet.findById(req.params.index).then((pet) => {
+        pet.destroy(pet);
+    }).then(() => {
+        req.flash('success', 'Successfully Deleted Pet')
+        res.redirect('/');
+    }).catch((err) => {
+        req.flash('caution', 'Something went wrong')
+        console.log(err)
+    })
 });
+
 
 module.exports = router;

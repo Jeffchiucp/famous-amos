@@ -6,7 +6,7 @@ block content
             img(src=pet.picUrlSq).img-fluid
         .col-sm-8
             h1=pet.name
-            famouspet=pet.species 
+            famouspet=pet.species
             .text-right
               a.btn.btn-primary(href="/pets/" + pet.id + "/purchase" role='button') Buy #{pet.name} Now!
             famouspet Born on #{pet.birthday}
